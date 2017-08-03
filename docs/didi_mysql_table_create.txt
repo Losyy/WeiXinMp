@@ -1,0 +1,71 @@
+create table dd_order
+(
+uuid varchar(32) key,
+passengerId varchar(11) not null,
+type varchar(2) not null,
+from varchar(100) not null,
+fromLongitude double(14,10) not null,
+fromLatitude double(14,10) not null,
+to varchar(100) not null,
+additionFee int(4) not null,
+canWait int(4) null,
+driverId varchar(32) null,
+cost int(4) null,
+toGoTime timestamp(8) null,
+confirmTime timestamp(8) null,
+startTime timestamp(8) null,
+endTime timestamp(8) null,
+createTime timestamp(8) not null
+)
+
+create table dd_driver
+(
+uuid varchar(32) key,
+phone varchar(11) not null,
+dirverLicense varchar(18) not null,
+carNumber varchar(10) not null,
+name varchar(20) not null,
+sex varchar(6) not null,
+birthday date not null,
+address varchar(100) not null,
+company varchar(100) not null,
+createTime timestamp(8) not null
+)
+
+create table dd_driver_statu
+(
+uuid varchar(32) key,
+driverId varchar(32) not null,
+longitude double(14,10) null,
+latitude double(14,10) null,
+positionTime timestamp(8) null,
+statu varchar(4) null,
+statuTime timestamp(8) null
+)
+
+create table dd_passenger
+(
+uuid varchar(32) key,
+phone varchar(11) not null,
+createTime timestamp(8) not null
+)
+
+create table dd_passenger_statu
+(
+uuid varchar(32) key,
+passengerId varchar(32) not null,
+longitude double(14,10) null,
+latitude double(14,10) null,
+positionTime timestamp(8) null
+)
+
+create table dd_sms_code
+(
+uuid varchar(32) key,
+code varchar(4) not null,
+createTime timestamp(8) not null
+)
+
+
+
+
